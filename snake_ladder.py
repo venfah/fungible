@@ -2,6 +2,7 @@ import sys
 from random import randint 
 from signal import signal, SIGINT
 
+No_Users = 2
 auto_mode = True
 # auto_mode = False
 users = {}
@@ -45,10 +46,9 @@ def check_win (user):
         return True
     return False
 
-No_Users = 2
-#for each in range(0, No_Users):
-#    users[get_user_name(each)] = {'current':0}
-users = {'Nazir':{'current' :0}, 'Venfah':{'current' :0}}
+for each in range(0, No_Users):
+    users[get_user_name(each)] = {'current':0}
+# users = {'Nazir':{'current' :0}, 'Venfah':{'current' :0}}
 
 snake  = {20:5, 40:12, 60:4, 80: 35, 98:52, 75:70, 93:9}
 ladder = {8:31, 22:65, 38:94, 62:72, 45:51}
