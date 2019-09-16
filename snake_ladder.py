@@ -31,9 +31,9 @@ def throw_dice(user):
             while True:
                 no = 0
                 try:
-                    no = raw_input("Throw the dice manually, {} and enter:".format(user)).rstrip()
+                    no = raw_input("{}, Throw the dice manually and enter:".format(user)).rstrip()
                 except NameError:
-                    no = input("Throw the dice manually, {} and enter:".format(user)).rstrip()
+                    no = input("{}, Throw the dice manually and enter:".format(user)).rstrip()
                 if no.isdigit() == True and int(no) > 0 and int(no) <= 12:
                     return int(no)
                     break
@@ -82,5 +82,5 @@ while True:
 
     if (game_over): break
 
-
-print ("{}".format(users))
+for each in users.keys():
+    print ("{} at: {}".format(each, users[each]['current']))
