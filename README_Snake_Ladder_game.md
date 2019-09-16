@@ -12,10 +12,10 @@ How to run:
 
 python snake_ladder.py it will run the game.
 
-if you want computer to play line:5 auto_mode = True
-if you want to play manually then: line:5 auto_mode = False
+if you want computer to play line:6 auto_mode = True
+if you want to play manually then: line:6 auto_mode = False (by default auto_mode is enabled)
 
-By default i sent no_users = 2. you can set more if needed. (tested for 4 users)
+By default i set No_Users = 2. you can set more if needed. (tested for 4 users)
 
 At any point of time you got bored, press ctrl+c
 
@@ -48,3 +48,7 @@ User Venfah Nazir won the match. Congratulations. Quitting...!
 {'Stone Cold': {'current': 35}, 'Venfah Nazir': {'current': 100}}
 nahamed@nahamed-vm1:~/python/tools$ 
 
+
+
+Have Fun...!
+ - Venfah
