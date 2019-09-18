@@ -1,20 +1,27 @@
 import sys
 from random import randint 
-from signal import signal, SIGINT
+from signal import signal, SIGINT, SIGTERM
 
-No_Users = 2
-auto_mode = True
-# auto_mode = False
+# auto_mode = True
+auto_mode = False
 users = {}
 
-def handle (signal, frame):
-    print ("\nCTRL+C detected. Quiting\n")
+def int_handle (signal, frame):
+    print ("\nSIGINT detected. Quiting\n")
     print ("Current positions:\n")
     for each in users.keys():
         print ("{} at: {}".format(each, users[each]['current']))
     sys.exit(1)
 
-signal(SIGINT, handle)
+def term_handle (signal, frame):
+    print ("\nSIGTERM detected. Quiting\n")
+    print ("Current positions:\n")
+    for each in users.keys():
+        print ("{} at: {}".format(each, users[each]['current']))
+    sys.exit(2)
+
+signal(SIGINT, int_handle)
+signal(SIGTERM, term_handle)
 
 
 def get_user_name(no):
@@ -31,9 +38,9 @@ def throw_dice(user):
             while True:
                 no = 0
                 try:
-                    no = raw_input("{}, Throw the dice manually and enter:".format(user)).rstrip()
+                    no = raw_input("Throw the dice manually, {} and enter:".format(user)).rstrip()
                 except NameError:
-                    no = input("{}, Throw the dice manually and enter:".format(user)).rstrip()
+                    no = input("Throw the dice manually, {} and enter:".format(user)).rstrip()
                 if no.isdigit() == True and int(no) > 0 and int(no) <= 12:
                     return int(no)
                     break
@@ -46,9 +53,10 @@ def check_win (user):
         return True
     return False
 
+No_Users = 2
 for each in range(0, No_Users):
     users[get_user_name(each)] = {'current':0}
-# users = {'Nazir':{'current' :0}, 'Venfah':{'current' :0}}
+#users = {'Nazir':{'current' :0}, 'Venfah':{'current' :0}}
 
 snake  = {20:5, 40:12, 60:4, 80: 35, 98:52, 75:70, 93:9}
 ladder = {8:31, 22:65, 38:94, 62:72, 45:51}
@@ -82,5 +90,5 @@ while True:
 
     if (game_over): break
 
-for each in users.keys():
-    print ("{} at: {}".format(each, users[each]['current']))
+
+print ("{}".format(users))
