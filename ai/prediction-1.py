@@ -1,5 +1,15 @@
 {
-  "cells": [],
+  "cells": [
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "cErcP-vW4UrJ"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ],
   "metadata": {
     "colab": {
       "name": "beginner.ipynb",
